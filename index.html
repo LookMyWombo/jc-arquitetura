@@ -399,6 +399,29 @@
     transition:color .4s var(--ease), transform .5s var(--ease);
   }
   .project-card:hover .art{ color:var(--brass); transform:translateY(-4px); }
+
+  /* photo variant of the project thumbnail: same footprint as .art,
+     but a real photo instead of line-art, with the same brass-toned
+     desaturated treatment used in the "Destaque" gallery */
+  .project-card .art-photo{
+    width:100%;
+    height:170px;
+    overflow:hidden;
+    background:var(--bg-panel);
+  }
+  .project-card .art-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(55%) contrast(1.08) brightness(.82) sepia(8%);
+    transition:filter .5s var(--ease), transform .5s var(--ease);
+  }
+  .project-card:hover .art-photo img{
+    filter:grayscale(0%) contrast(1) brightness(1) sepia(0%);
+    transform:translateY(-4px) scale(1.02);
+  }
+
   .project-card .meta-row{
     display:flex;
     justify-content:space-between;
@@ -773,7 +796,9 @@
 
         <article class="project-card">
           <span class="num">01</span>
-          <svg class="art" viewBox="0 0 320 140" fill="none"><line x1="0" y1="120" x2="320" y2="120" stroke="var(--line)"/><path d="M40 120V70l60-34 60 34v50" stroke="currentColor" stroke-width="1.2"/><line x1="40" y1="90" x2="160" y2="90" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="88" y1="70" x2="88" y2="120" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="200" y="80" width="80" height="40" stroke="currentColor" stroke-width="1.2"/><line x1="200" y1="100" x2="280" y2="100" stroke="currentColor" stroke-width="1" opacity=".5"/></svg>
+          <div class="art-photo">
+            <img src="images/casa-patio-alto.png" alt="Fachada da Casa Pátio Alto, com marcenaria em ripas de madeira e marquise em concreto">
+          </div>
           <div class="meta-row">
             <h3>Casa Pátio Alto</h3>
             <div class="where"><b>Goiânia, GO</b>Residencial · 2024 · 420 m²</div>
@@ -782,7 +807,9 @@
 
         <article class="project-card">
           <span class="num">02</span>
-          <svg class="art" viewBox="0 0 320 140" fill="none"><line x1="0" y1="120" x2="320" y2="120" stroke="var(--line)"/><rect x="120" y="30" width="70" height="90" stroke="currentColor" stroke-width="1.2"/><line x1="120" y1="48" x2="190" y2="48" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="120" y1="66" x2="190" y2="66" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="120" y1="84" x2="190" y2="84" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="120" y1="102" x2="190" y2="102" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="190" y="70" width="70" height="50" stroke="currentColor" stroke-width="1.2"/></svg>
+          <div class="art-photo">
+            <img src="images/edificio-cedro.png" alt="Fachada do Edifício Cedro, volume em dois pavimentos com revestimento em pedra e marquise em balanço">
+          </div>
           <div class="meta-row">
             <h3>Edifício Cedro</h3>
             <div class="where"><b>São Paulo, SP</b>Comercial · 2023 · 3.100 m²</div>
