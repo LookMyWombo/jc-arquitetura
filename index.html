@@ -159,10 +159,9 @@
   .hero{
     position:relative;
     min-height:100svh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    padding-top:120px;
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
     overflow:hidden;
   }
   .hero-bg{
@@ -175,72 +174,95 @@
     height:100%;
     object-fit:cover;
     object-position:center 60%;
-    filter:grayscale(20%) contrast(1.05) brightness(.7) sepia(6%);
+    filter:grayscale(20%) contrast(1.05) brightness(.65) sepia(6%);
   }
   .hero-overlay{
     position:absolute;
     inset:0;
     z-index:0;
     background:
-      linear-gradient(to top, rgba(12,10,7,.96) 0%, rgba(12,10,7,.55) 42%, rgba(12,10,7,.35) 65%, rgba(12,10,7,.65) 100%),
-      linear-gradient(to right, rgba(12,10,7,.5) 0%, rgba(12,10,7,0) 40%);
+      linear-gradient(115deg, rgba(12,10,7,.97) 0%, rgba(12,10,7,.85) 30%, rgba(12,10,7,.35) 58%, rgba(12,10,7,.55) 100%);
   }
+
+  .hero-side-label{
+    position:absolute;
+    left:var(--gutter);
+    bottom:40px;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .hero-side-label .dash{ width:30px; height:1px; background:var(--brass-dim); }
 
   .hero-compass{
     position:absolute;
-    top:110px; right:var(--gutter);
-    width:64px; opacity:.7;
+    bottom:40px; right:var(--gutter);
+    width:52px; opacity:.6;
     z-index:1;
   }
 
   .hero-cta{
     display:flex;
     gap:16px;
-    margin-top:40px;
+    margin-top:44px;
     opacity:0;
     animation:riseIn 1s var(--ease) .8s forwards;
   }
   .btn{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
     font-family:var(--mono);
     font-size:12px;
     letter-spacing:.1em;
     text-transform:uppercase;
-    padding:16px 28px;
+    padding:17px 30px;
     border:1px solid transparent;
-    transition:background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+    transition:background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease), gap .3s var(--ease);
   }
   .btn-primary{
-    background:var(--brass);
+    background:var(--brass-hi);
     color:#15130f;
   }
-  .btn-primary:hover{ background:var(--brass-hi); }
-  .btn-outline{
-    border-color:rgba(236,228,213,.35);
-    color:var(--text);
+  .btn-primary:hover{ background:var(--brass); gap:14px; }
+  .btn-ghost{
+    color:var(--text-muted);
+    border-bottom:1px solid var(--brass-dim);
+    padding-left:0;
+    padding-right:0;
   }
-  .btn-outline:hover{ border-color:var(--brass-hi); color:var(--brass-hi); }
+  .btn-ghost:hover{ color:var(--brass-hi); border-color:var(--brass-hi); gap:14px; }
 
   .hero-inner{
     position:relative;
     z-index:1;
-    padding:0 var(--gutter) 64px;
+    max-width:640px;
+    padding:0 var(--gutter);
+    margin-left:auto;
+    margin-right:14vw;
+    text-align:right;
   }
   .hero-eyebrow{
     font-family:var(--mono);
     font-size:12px;
-    letter-spacing:.16em;
+    letter-spacing:.2em;
     text-transform:uppercase;
     color:var(--brass);
-    margin-bottom:22px;
+    margin-bottom:26px;
     opacity:0;
     animation:riseIn .9s var(--ease) .3s forwards;
   }
   .hero h1{
     font-family:var(--serif);
     font-weight:400;
-    line-height:.96;
-    font-size:clamp(44px, 8.4vw, 122px);
+    line-height:1.02;
+    font-size:clamp(38px, 5.6vw, 74px);
     letter-spacing:-.01em;
     opacity:0;
     animation:riseIn 1s var(--ease) .45s forwards;
@@ -249,18 +271,19 @@
     font-style:italic;
     font-weight:400;
     color:var(--brass-hi);
-    display:block;
   }
   .hero-sub{
-    max-width:520px;
-    margin-top:28px;
-    font-size:18px;
+    max-width:440px;
+    margin-top:24px;
+    margin-left:auto;
+    font-size:16.5px;
     color:var(--text-muted);
     font-weight:400;
     opacity:0;
     animation:riseIn 1s var(--ease) .65s forwards;
   }
   .hero-sub b{ color:var(--text); font-weight:500; }
+  .hero-cta{ justify-content:flex-end; }
 
   @keyframes riseIn{
     from{ opacity:0; transform:translateY(18px); }
@@ -268,9 +291,10 @@
   }
 
   .scroll-cue{
-    margin-top:56px;
+    margin-top:60px;
     display:flex;
     align-items:center;
+    justify-content:flex-end;
     gap:12px;
     font-family:var(--mono);
     font-size:11px;
@@ -609,7 +633,12 @@
     .nav-links{ display:none; }
     .contact-details{ grid-template-columns:1fr; }
     .hero-bg img{ object-position:center 55%; }
-    .hero-cta{ flex-direction:column; align-items:flex-start; }
+    .hero-cta{ flex-direction:column; align-items:flex-end; }
+    .hero-inner{ margin-right:0; text-align:left; max-width:100%; }
+    .hero-sub{ margin-left:0; }
+    .hero-cta{ align-items:flex-start; }
+    .scroll-cue{ justify-content:flex-start; }
+    .hero-side-label{ display:none; }
   }
 </style>
 </head>
@@ -641,6 +670,11 @@
 
   <!-- ================= HERO ================= -->
   <header class="hero">
+    <div class="hero-bg">
+      <img src="images/edificio-cedro-hq.jpg" alt="Fachada do Edifício Cedro ao entardecer">
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
     <svg class="hero-compass" viewBox="0 0 64 64" fill="none" aria-hidden="true">
       <circle cx="32" cy="32" r="30" stroke="var(--brass-dim)"/>
       <path d="M32 6 L32 12 M32 52 L32 58 M6 32 L12 32 M52 32 L58 32" stroke="var(--brass-dim)"/>
@@ -648,20 +682,17 @@
       <text x="32" y="6" text-anchor="middle" fill="var(--brass)" font-family="IBM Plex Mono" font-size="7">N</text>
     </svg>
 
-    <div class="hero-bg">
-      <img src="images/edificio-cedro-hq.png" alt="Fachada do Edifício Cedro ao entardecer">
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-side-label"><span class="dash"></span>Obra em destaque — Edifício Cedro, SP</div>
 
     <div class="hero-inner">
-      <p class="hero-eyebrow">Palmas, TO — Júlio Vilela Arquitetura</p>
-      <h1>Primeiro,<em>o terreno.</em></h1>
-      <p class="hero-sub">Escutamos você, o lugar e a história. E projetamos espaços a partir de <b>três coisas que não se compram prontas</b>: o terreno, a luz do lugar e o modo como cada cliente vive.</p>
+      <p class="hero-eyebrow">Estúdio A—00 · Manifesto</p>
+      <h1>A obra começa<br>onde termina <em>o achismo.</em></h1>
+      <p class="hero-sub">Cada projeto parte de um levantamento real do terreno, da insolação e da rotina de quem vai viver ali — não de um catálogo de plantas prontas.</p>
       <div class="hero-cta">
-        <a href="#projetos" class="btn btn-primary">Ver projetos</a>
-        <a href="#estudio" class="btn btn-outline">Conheça o estúdio</a>
+        <a href="#projetos" class="btn btn-primary">Ver o portfólio →</a>
+        <a href="#processo" class="btn btn-ghost">Como trabalhamos</a>
       </div>
-      <div class="scroll-cue"><span class="stem"></span>Role para explorar</div>
+      <div class="scroll-cue"><span class="stem"></span>Continue rolando</div>
     </div>
   </header>
 
@@ -745,7 +776,7 @@
         <article class="project-card">
           <span class="num">02</span>
           <div class="art-photo">
-            <img src="images/edificio-cedro-hq.png" alt="Fachada do Edifício Cedro, volume em dois pavimentos com revestimento em pedra e marquise em balanço">
+            <img src="images/edificio-cedro.png" alt="Fachada do Edifício Cedro, volume em dois pavimentos com revestimento em pedra e marquise em balanço">
           </div>
           <div class="meta-row">
             <h3>Edifício Cedro</h3>
