@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JC Arquitetura — Projetos residenciais, comerciais e interiores</title>
-<meta name="description" content="JC Arquitetura. Escritório de arquitetura, interiores e requalificação de espaços. Projetos residenciais e comerciais desenhados a partir do território e da luz.">
+<title>Júlio Vilela Arquitetura — Projetos residenciais, comerciais e interiores</title>
+<meta name="description" content="Júlio Vilela Arquitetura. Escritório de arquitetura, interiores e requalificação de espaços. Projetos residenciais e comerciais desenhados a partir do território e da luz.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -112,12 +112,27 @@
     transition:background .3s var(--ease);
   }
   .nav .mark{
-    font-family:var(--serif);
-    font-size:22px;
-    font-weight:500;
-    letter-spacing:.02em;
+    display:flex;
+    align-items:center;
+    gap:12px;
   }
-  .nav .mark span{ color:var(--brass); font-style:italic; font-weight:400; }
+  .nav .mark .badge{ width:38px; height:38px; flex-shrink:0; }
+  .nav .mark .wordmark{ display:flex; flex-direction:column; line-height:1.1; }
+  .nav .mark .wordmark .name{
+    font-family:var(--serif);
+    font-size:19px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .nav .mark .wordmark .name em{ color:var(--brass-hi); font-style:italic; font-weight:400; }
+  .nav .mark .wordmark .sub{
+    font-family:var(--mono);
+    font-size:9px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-top:2px;
+  }
   .nav-links{
     display:flex;
     gap:clamp(18px,3vw,40px);
@@ -198,7 +213,7 @@
     font-family:var(--serif);
     font-weight:400;
     line-height:.96;
-    font-size:clamp(56px, 11vw, 152px);
+    font-size:clamp(44px, 8.4vw, 122px);
     letter-spacing:-.01em;
     opacity:0;
     animation:riseIn 1s var(--ease) .45s forwards;
@@ -415,6 +430,74 @@
     color:var(--text-dim);
   }
 
+  /* ================= DESTAQUE (fotos reais) ================= */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:40px;
+  }
+  .feature-gallery{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .feature-main{ grid-row:span 2; }
+  .feature-photo{
+    position:relative;
+    overflow:hidden;
+    background:var(--bg-panel);
+  }
+  .feature-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(55%) contrast(1.08) brightness(.82) sepia(8%);
+    transition:filter .6s var(--ease), transform .6s var(--ease);
+  }
+  .feature-main .feature-photo img{ aspect-ratio:4/3.6; }
+  .feature-side .feature-photo img{ aspect-ratio:4/2.5; }
+  .feature-photo:hover img{
+    filter:grayscale(0%) contrast(1) brightness(1) sepia(0%);
+    transform:scale(1.03);
+  }
+  .feature-photo .cap{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:20px 22px;
+    background:linear-gradient(to top, rgba(15,13,10,.85), transparent);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+  }
+  .feature-photo .cap h3{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:22px;
+    color:var(--text);
+  }
+  .feature-photo .cap span{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass-hi);
+  }
+  .feature-side{ display:grid; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); }
+  .feature-note{
+    margin-top:28px;
+    color:var(--text-muted);
+    max-width:60ch;
+    font-size:15.5px;
+  }
+  @media (max-width:900px){
+    .feature-gallery{ grid-template-columns:1fr; }
+    .feature-main{ grid-row:auto; }
+  }
+
   /* ================= PROCESS ================= */
   .process-track{
     display:grid;
@@ -550,7 +633,17 @@
 <div class="grid-field" aria-hidden="true"></div>
 
 <nav class="nav">
-  <a href="#top" class="mark">JC<span>·</span>Arquitetura</a>
+  <a href="#top" class="mark">
+    <svg class="badge" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+      <circle cx="22" cy="22" r="20.5" stroke="var(--brass)" stroke-width="1"/>
+      <path d="M15 11v14.4c0 3.2-2 4.9-4.6 4.9-1.5 0-2.7-.5-3.7-1.4" stroke="var(--brass-hi)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 11l6 19 6-19" stroke="var(--brass-hi)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="wordmark">
+      <span class="name">Júlio <em>Vilela</em></span>
+      <span class="sub">Arquitetura</span>
+    </span>
+  </a>
   <div class="nav-links">
     <a href="#estudio">Estúdio</a>
     <a href="#servicos">Serviços</a>
@@ -606,7 +699,7 @@
 
     <div class="hero-inner">
       <p class="hero-eyebrow">Arquitetura — Interiores — Requalificação</p>
-      <h1>JC<em>Arquitetura</em></h1>
+      <h1>Júlio Vilela<em>Arquitetura</em></h1>
       <p class="hero-sub">Projetamos casas, espaços comerciais e interiores a partir de <b>três coisas que não se compram prontas</b>: o terreno, a luz do lugar e o modo como cada cliente vive.</p>
       <div class="scroll-cue"><span class="stem"></span>Role para o estúdio</div>
     </div>
@@ -622,7 +715,7 @@
       <div class="studio-grid">
         <div></div>
         <div class="studio-copy reveal">
-          <p>A JC Arquitetura nasceu do incômodo com projetos que chegam prontos antes de conhecer o lugar. Cada trabalho começa com uma pergunta simples — <strong>como esse espaço já quer ser usado</strong> — e só depois vira croqui, planta e obra.</p>
+          <p>A Júlio Vilela Arquitetura nasceu do incômodo com projetos que chegam prontos antes de conhecer o lugar. Cada trabalho começa com uma pergunta simples — <strong>como esse espaço já quer ser usado</strong> — e só depois vira croqui, planta e obra.</p>
           <p>Trabalhamos em equipe enxuta, do estudo de viabilidade ao acompanhamento de obra, para que o desenho no papel chegue inteiro até o detalhe construído: a esquadria, a bancada, o encontro entre dois materiais.</p>
         </div>
       </div>
@@ -765,8 +858,8 @@
         <div></div>
         <div class="contact-main reveal">
           <h2>Vamos falar sobre <em>o seu terreno.</em></h2>
-          <a class="contact-email" href="mailto:contato@jcarquitetura.com.br">
-            contato@jcarquitetura.com.br <span class="arrow">→</span>
+          <a class="contact-email" href="mailto:contato@juliovilela.arq.br">
+            contato@juliovilela.arq.br <span class="arrow">→</span>
           </a>
           <div class="contact-details">
             <div><div class="l">Estúdio</div><div class="v">Rua dos Arquitetos, 214 — Sala 4<br>Setor Bueno, Goiânia — GO</div></div>
@@ -784,7 +877,7 @@
 </main>
 
 <footer>
-  <span>© <span id="year"></span> JC Arquitetura — Todos os direitos reservados</span>
+  <span>© <span id="year"></span> Júlio Vilela Arquitetura — Todos os direitos reservados</span>
   <a href="#top" class="back-top">Voltar ao topo ↑</a>
 </footer>
 
