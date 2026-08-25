@@ -158,7 +158,7 @@
   /* ================= HERO ================= */
   .hero{
     position:relative;
-    min-height:100svh;
+    min-height:92svh;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
@@ -174,12 +174,9 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center 35%;
+    object-position:center 42%;
     filter:grayscale(20%) contrast(1.05) brightness(.7) sepia(6%);
-    transform:scale(1.04);
-    animation:heroZoom 16s var(--ease) forwards;
   }
-  @keyframes heroZoom{ to{ transform:scale(1); } }
   .hero-overlay{
     position:absolute;
     inset:0;
@@ -611,7 +608,7 @@
     .process-steps::before{ display:none; }
     .nav-links{ display:none; }
     .contact-details{ grid-template-columns:1fr; }
-    .hero-bg img{ object-position:center 30%; }
+    .hero-bg img{ object-position:center 38%; }
     .hero-cta{ flex-direction:column; align-items:flex-start; }
   }
 </style>
@@ -652,7 +649,7 @@
     </svg>
 
     <div class="hero-bg">
-      <img src="images/edificio-cedro.png" alt="Fachada do Edifício Cedro ao entardecer">
+      <img src="images/edificio-cedro-hq.jpg" alt="Fachada do Edifício Cedro ao entardecer">
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
