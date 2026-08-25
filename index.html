@@ -65,7 +65,6 @@
     padding-right:var(--gutter);
   }
 
-  /* ---------- background drafting grid ---------- */
   .grid-field{
     position:fixed;
     inset:0;
@@ -79,7 +78,6 @@
     mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 85%);
   }
 
-  /* ---------- sheet label system (margin annotations) ---------- */
   .sheet-label{
     font-family:var(--mono);
     font-size:11px;
@@ -98,7 +96,6 @@
     display:inline-block;
   }
 
-  /* ================= NAV ================= */
   .nav{
     position:fixed;
     top:0; left:0; right:0;
@@ -157,7 +154,6 @@
   .nav-links a:hover::after{ right:0; }
   .nav-toggle{ display:none; }
 
-  /* ================= HERO ================= */
   .hero{
     position:relative;
     min-height:100svh;
@@ -272,7 +268,6 @@
     100%{ top:100%; }
   }
 
-  /* ================= SECTION SHELL ================= */
   section{
     position:relative;
     z-index:1;
@@ -293,7 +288,6 @@
   }
   .section-head .kicker{ padding-top:6px; }
 
-  /* reveal-on-scroll */
   .reveal{
     opacity:0;
     transform:translateY(28px);
@@ -301,7 +295,6 @@
   }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
-  /* ================= STUDIO ================= */
   .studio-grid{
     display:grid;
     grid-template-columns:220px 1fr;
@@ -341,7 +334,6 @@
     color:var(--text-dim);
   }
 
-  /* ================= SERVICES ================= */
   .services{
     display:grid;
     grid-template-columns:220px 1fr;
@@ -378,7 +370,6 @@
     padding-top:6px;
   }
 
-  /* ================= PROJECTS ================= */
   .projects-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -430,7 +421,6 @@
     color:var(--text-dim);
   }
 
-  /* ================= DESTAQUE (fotos reais) ================= */
   .feature-grid{
     display:grid;
     grid-template-columns:220px 1fr;
@@ -498,7 +488,6 @@
     .feature-main{ grid-row:auto; }
   }
 
-  /* ================= PROCESS ================= */
   .process-track{
     display:grid;
     grid-template-columns:220px 1fr;
@@ -541,7 +530,6 @@
     margin-bottom:10px;
   }
 
-  /* ================= CONTACT ================= */
   .contact-grid{
     display:grid;
     grid-template-columns:220px 1fr;
@@ -591,7 +579,6 @@
   .contact-details .v{ color:var(--text-muted); font-size:15px; line-height:1.7; }
   .contact-details a.v:hover{ color:var(--brass-hi); }
 
-  /* ================= FOOTER ================= */
   footer{
     border-top:1px solid var(--line);
     padding:32px var(--gutter) 40px;
@@ -609,7 +596,6 @@
   footer .back-top{ color:var(--text-dim); transition:color .3s var(--ease); }
   footer .back-top:hover{ color:var(--brass-hi); }
 
-  /* ================= RESPONSIVE ================= */
   @media (max-width:900px){
     .section-head,
     .studio-grid,
@@ -654,7 +640,6 @@
 
 <main id="top">
 
-  <!-- ================= HERO ================= -->
   <header class="hero">
     <svg class="hero-compass" viewBox="0 0 64 64" fill="none" aria-hidden="true">
       <circle cx="32" cy="32" r="30" stroke="var(--brass-dim)"/>
@@ -664,9 +649,7 @@
     </svg>
 
     <svg class="hero-elevation" viewBox="0 0 560 480" fill="none" aria-hidden="true">
-      <!-- ground line -->
       <line x1="0" y1="440" x2="560" y2="440" stroke="var(--line)" stroke-width="1"/>
-      <!-- tower A -->
       <rect x="60" y="120" width="140" height="320" stroke="var(--brass)" stroke-width="1.1"/>
       <line x1="60" y1="150" x2="200" y2="150" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="60" y1="180" x2="200" y2="180" stroke="var(--brass-dim)" stroke-width="1"/>
@@ -677,7 +660,6 @@
       <line x1="60" y1="330" x2="200" y2="330" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="60" y1="360" x2="200" y2="360" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="60" y1="390" x2="200" y2="390" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- low volume B -->
       <rect x="210" y="260" width="230" height="180" stroke="var(--brass)" stroke-width="1.1"/>
       <line x1="210" y1="300" x2="440" y2="300" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="210" y1="340" x2="440" y2="340" stroke="var(--brass-dim)" stroke-width="1"/>
@@ -685,14 +667,12 @@
       <line x1="260" y1="260" x2="260" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="320" y1="260" x2="320" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="380" y1="260" x2="380" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- slab roof accent -->
       <rect x="450" y="200" width="80" height="240" stroke="var(--brass)" stroke-width="1.1"/>
       <line x1="450" y1="240" x2="530" y2="240" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="450" y1="280" x2="530" y2="280" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="450" y1="320" x2="530" y2="320" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="450" y1="360" x2="530" y2="360" stroke="var(--brass-dim)" stroke-width="1"/>
       <line x1="450" y1="400" x2="530" y2="400" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- dimension marks -->
       <path class="fill-panel" d="M60 460 L200 460 M60 456 L60 464 M200 456 L200 464" stroke="var(--text-dim)" stroke-width="1"/>
       <text class="fill-panel" x="130" y="475" text-anchor="middle" fill="var(--text-dim)" font-family="IBM Plex Mono" font-size="9">14.00</text>
     </svg>
@@ -705,7 +685,6 @@
     </div>
   </header>
 
-  <!-- ================= ESTÚDIO ================= -->
   <section id="estudio">
     <div class="wrap">
       <div class="section-head reveal">
@@ -727,7 +706,6 @@
     </div>
   </section>
 
-  <!-- ================= SERVIÇOS ================= -->
   <section id="servicos">
     <div class="wrap">
       <div class="section-head reveal">
@@ -761,7 +739,6 @@
     </div>
   </section>
 
-  <!-- ================= PROJETOS ================= -->
   <section id="projetos">
     <div class="wrap">
       <div class="section-head reveal">
@@ -829,7 +806,48 @@
     </div>
   </section>
 
-  <!-- ================= PROCESSO ================= -->
+  <section id="destaque">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="sheet-label"><span class="num">A—03.1</span>Destaque</div>
+        <h2>Do render<br>ao construído.</h2>
+      </div>
+      <div class="feature-grid">
+        <div></div>
+        <div>
+          <div class="feature-gallery reveal">
+            <div class="feature-main">
+              <div class="feature-photo">
+                <img src="images/casa-terrea-fachada.png" alt="Fachada de casa térrea com revestimento em madeira e pergolado">
+                <div class="cap">
+                  <h3>Casa Térrea Jardim</h3>
+                  <span>Fachada principal</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-side">
+              <div class="feature-photo">
+                <img src="images/casa-sobrado-frente.png" alt="Sobrado contemporâneo com garagem coberta e revestimento em pedra">
+                <div class="cap">
+                  <h3>Sobrado Pedra Bege</h3>
+                  <span>Fachada frontal</span>
+                </div>
+              </div>
+              <div class="feature-photo">
+                <img src="images/casa-sobrado-detalhe.png" alt="Detalhe da varanda superior e revestimento em pedra do sobrado">
+                <div class="cap">
+                  <h3>Sobrado Pedra Bege</h3>
+                  <span>Detalhe da varanda</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="feature-note reveal">Renders de projetos em desenvolvimento, do estudo de fachada ao detalhamento de revestimentos, marcenaria e iluminação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="processo">
     <div class="wrap">
       <div class="section-head reveal">
@@ -848,7 +866,6 @@
     </div>
   </section>
 
-  <!-- ================= CONTATO ================= -->
   <section id="contato">
     <div class="wrap">
       <div class="section-head reveal">
