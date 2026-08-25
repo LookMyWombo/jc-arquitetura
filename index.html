@@ -165,32 +165,64 @@
     padding-top:120px;
     overflow:hidden;
   }
-  .hero-elevation{
+  .hero-bg{
     position:absolute;
-    right:clamp(-120px, 2vw, 40px);
-    top:8%;
-    width:min(58vw, 780px);
-    opacity:.9;
+    inset:0;
     z-index:0;
   }
-  .hero-elevation path,
-  .hero-elevation line,
-  .hero-elevation rect{
-    stroke-dasharray: 2200;
-    stroke-dashoffset: 2200;
-    animation: draw 2.6s var(--ease) forwards;
+  .hero-bg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 35%;
+    filter:grayscale(20%) contrast(1.05) brightness(.7) sepia(6%);
+    transform:scale(1.04);
+    animation:heroZoom 16s var(--ease) forwards;
   }
-  .hero-elevation .fill-panel{
-    stroke-dasharray:none; stroke-dashoffset:0; animation:panelFade 1.4s var(--ease) 1.6s forwards; opacity:0;
+  @keyframes heroZoom{ to{ transform:scale(1); } }
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:
+      linear-gradient(to top, rgba(12,10,7,.96) 0%, rgba(12,10,7,.55) 42%, rgba(12,10,7,.35) 65%, rgba(12,10,7,.65) 100%),
+      linear-gradient(to right, rgba(12,10,7,.5) 0%, rgba(12,10,7,0) 40%);
   }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  @keyframes panelFade{ to{ opacity:1; } }
 
   .hero-compass{
     position:absolute;
     top:110px; right:var(--gutter);
-    width:64px; opacity:.55;
+    width:64px; opacity:.7;
+    z-index:1;
   }
+
+  .hero-cta{
+    display:flex;
+    gap:16px;
+    margin-top:40px;
+    opacity:0;
+    animation:riseIn 1s var(--ease) .8s forwards;
+  }
+  .btn{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:16px 28px;
+    border:1px solid transparent;
+    transition:background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:#15130f;
+  }
+  .btn-primary:hover{ background:var(--brass-hi); }
+  .btn-outline{
+    border-color:rgba(236,228,213,.35);
+    color:var(--text);
+  }
+  .btn-outline:hover{ border-color:var(--brass-hi); color:var(--brass-hi); }
 
   .hero-inner{
     position:relative;
@@ -579,7 +611,8 @@
     .process-steps::before{ display:none; }
     .nav-links{ display:none; }
     .contact-details{ grid-template-columns:1fr; }
-    .hero-elevation{ width:min(80vw,520px); opacity:.5; top:14%; }
+    .hero-bg img{ object-position:center 30%; }
+    .hero-cta{ flex-direction:column; align-items:flex-start; }
   }
 </style>
 </head>
@@ -618,45 +651,20 @@
       <text x="32" y="6" text-anchor="middle" fill="var(--brass)" font-family="IBM Plex Mono" font-size="7">N</text>
     </svg>
 
-    <svg class="hero-elevation" viewBox="0 0 560 480" fill="none" aria-hidden="true">
-      <!-- ground line -->
-      <line x1="0" y1="440" x2="560" y2="440" stroke="var(--line)" stroke-width="1"/>
-      <!-- tower A -->
-      <rect x="60" y="120" width="140" height="320" stroke="var(--brass)" stroke-width="1.1"/>
-      <line x1="60" y1="150" x2="200" y2="150" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="180" x2="200" y2="180" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="210" x2="200" y2="210" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="240" x2="200" y2="240" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="270" x2="200" y2="270" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="300" x2="200" y2="300" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="330" x2="200" y2="330" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="360" x2="200" y2="360" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="60" y1="390" x2="200" y2="390" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- low volume B -->
-      <rect x="210" y="260" width="230" height="180" stroke="var(--brass)" stroke-width="1.1"/>
-      <line x1="210" y1="300" x2="440" y2="300" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="210" y1="340" x2="440" y2="340" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="210" y1="380" x2="440" y2="380" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="260" y1="260" x2="260" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="320" y1="260" x2="320" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="380" y1="260" x2="380" y2="440" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- slab roof accent -->
-      <rect x="450" y="200" width="80" height="240" stroke="var(--brass)" stroke-width="1.1"/>
-      <line x1="450" y1="240" x2="530" y2="240" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="450" y1="280" x2="530" y2="280" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="450" y1="320" x2="530" y2="320" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="450" y1="360" x2="530" y2="360" stroke="var(--brass-dim)" stroke-width="1"/>
-      <line x1="450" y1="400" x2="530" y2="400" stroke="var(--brass-dim)" stroke-width="1"/>
-      <!-- dimension marks -->
-      <path class="fill-panel" d="M60 460 L200 460 M60 456 L60 464 M200 456 L200 464" stroke="var(--text-dim)" stroke-width="1"/>
-      <text class="fill-panel" x="130" y="475" text-anchor="middle" fill="var(--text-dim)" font-family="IBM Plex Mono" font-size="9">14.00</text>
-    </svg>
+    <div class="hero-bg">
+      <img src="images/edificio-cedro.png" alt="Fachada do Edifício Cedro ao entardecer">
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-inner">
-      <p class="hero-eyebrow">Arquitetura — Interiores — Requalificação</p>
-      <h1>Júlio Vilela<em>Arquitetura</em></h1>
-      <p class="hero-sub">Projetamos casas, espaços comerciais e interiores a partir de <b>três coisas que não se compram prontas</b>: o terreno, a luz do lugar e o modo como cada cliente vive.</p>
-      <div class="scroll-cue"><span class="stem"></span>Role para o estúdio</div>
+      <p class="hero-eyebrow">Goiânia, GO — Arquitetura de território e luz</p>
+      <h1>Primeiro,<em>o terreno.</em></h1>
+      <p class="hero-sub">Escutamos você, o lugar e a história. E projetamos espaços a partir de <b>três coisas que não se compram prontas</b>: o terreno, a luz do lugar e o modo como cada cliente vive.</p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+        <a href="#estudio" class="btn btn-outline">Conheça o estúdio</a>
+      </div>
+      <div class="scroll-cue"><span class="stem"></span>Role para explorar</div>
     </div>
   </header>
 
